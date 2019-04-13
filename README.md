@@ -8,14 +8,29 @@ The aim of this simple tool is to run certain static sql queries against the dat
 Before executing python code, an extra view named `log_cleared` have to be created in the database. [check below](#creating-a-view)
 
 ## Table of Contents
-* [Quick Start](#quick-start)
+* [Installation Guide](#installation-guide)
 * [Creating a View](#creating-a-view)
 * [Code Design](#code-design)
 
-## Quick Start
-* Install vagrant, VM and configuration files following [the instructions at Udacity](https://classroom.udacity.com/nanodegrees/nd004-ent/parts/72d6fe39-3e47-45b4-ac52-9300b146094f/modules/0f94ae26-c39d-4231-924b-b1eb6e06cf41/lessons/5475ecd6-cfdb-4418-85a2-f2583074c08d/concepts/14c72fe3-e3fe-4959-9c4b-467cf5b7c3a0)
-* Run vagrant Virtual machine using `vagrant ssh`
+## Installation Guide
+* Install vagrant, VM and configuration file
+    * download and install virtual box version that corresponds to your operating system from [here](https://www.virtualbox.org/wiki/Downloads)
+    * download and install vagrant version that corresponds to your operating system from [here](https://www.vagrantup.com/downloads.html)
+    * make sure that vagrant is installed by running this command in your terminal `vagrant --version`. N.B. if you're using windows os, will need to install and use git terminal
+    * download VM configuration
+        * download and unzip [this file](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip) offered by Udacity
+        * you'll end with a directory containing the configuration file. `cd` to that directory
+        * start the virtual machine by running `vagrant up`. This will cause Vagrant to download the Linux operating system and install it.
+        * clone the contents of this github repository to the directory containing the configuration file, This is the shared folder with your virtual machine.
+            ```
+            git clone https://github.com/i-mw/log-analysis
+            ```
+
+* Run vagrant Virtual machine:
+    * `cd` to the folder containing vagrant configuration file
+    * `vagrant ssh`
 * From vagrant terminal:
+    * `cd /vagrant/log-analysis` to move to the project directory on the shared folder
     * `psql news`  => to enter the database
     * create a view named `log_cleared`
         ```sql
